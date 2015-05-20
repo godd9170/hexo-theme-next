@@ -11,7 +11,7 @@ menu:
 favicon: /favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo,next"
+keywords: "Hank,Henry"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -21,10 +21,10 @@ rss:
 # Icon fonts
 # Place your font into next/source/fonts, specify directory-name and font-name here
 # Avialable: default | linecons | fifty-shades | feather
-icon_font: default
+#icon_font: default
 #icon_font: fifty-shades
 #icon_font: feather
-#icon_font: linecons
+icon_font: linecons
 
 # Code Highlight theme
 # Available value: normal | night | night eighties | night blue | night bright
@@ -56,6 +56,8 @@ scroll_to_more: true
 # Automatically add list number to toc.
 toc_list_number: true
 
+social:
+  GitHub: https://github.com/godd9170
 
 ## DO NOT EDIT THE FOLLOWING SETTINGS
 ## UNLESS YOU KNOW WHAT YOU ARE DOING
