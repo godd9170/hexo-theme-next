@@ -1,66 +1,67 @@
 {% macro render(post, is_index, post_extra_class) %}
 
   <div class="post post-type-{{ post.type | default('normal') }} {{ post_extra_class | default('') }}">
-    <div class="post-header">
-
-      {# Not to show title for quote posts that do not have a title #}
-      {% if not (is_home() and post.type === 'quote' and not post.title) %}
-        <h1 class="post-title">
-          {# Link posts #}
-          {% if post.link %}
-            <a class="post-title-link post-title-link-external" target="_blank" href="{{ url_for(post.link) }}">
-              {{ post.title or post.link }}
-              <i class="icon-external-link"></i>
-            </a>
-          {% else %}
-            {% if is_home() %}
-              <a class="post-title-link" href="{{ url_for(post.path) }}">
-                {{ post.title | default(__('post.untitled'))}}
+    <div class="post-header" style='background-image: url("images/ferris.jpeg");'>
+      <div class="post-title-container">
+        {# Not to show title for quote posts that do not have a title #}
+        {% if not (is_home() and post.type === 'quote' and not post.title) %}
+          <h1 class="post-title">
+            {# Link posts #}
+            {% if post.link %}
+              <a class="post-title-link post-title-link-external" target="_blank" href="{{ url_for(post.link) }}">
+                {{ post.title or post.link }}
+                <i class="icon-external-link"></i>
               </a>
             {% else %}
-              {{ post.title }}
+              {% if is_home() %}
+                <a class="post-title-link" href="{{ url_for(post.path) }}">
+                  {{ post.title | default(__('post.untitled'))}}
+                </a>
+              {% else %}
+                {{ post.title }}
+              {% endif %}
+            {% endif %}
+          </h1>
+        {% endif %}
+
+        <div class="post-meta">
+          <span class="post-time">
+            {{ __('post.posted') }} {{ post.date | date('Y-m-d') }}
+          </span>
+
+          {% if post.categories and post.categories.length %}
+            <span class="post-category">
+              &nbsp; | &nbsp; {{ __('post.in') }}
+              {% for cat in post.categories %}
+                <a href="{{ url_for(cat.path) }}">{{ cat.name }}</a>
+
+                {% set cat_length = post.categories.length %}
+                {% if cat_length > 1 and loop.index !== cat_length %}
+                  {{ __('symbol.comma') }}
+                {% endif %}
+
+              {% endfor %}
+            </span>
+          {% endif %}
+
+          {% if post.comments %}
+            {% if (config.duoshuo and config.duoshuo.shortname) or config.duoshuo_shortname %}
+              <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="{{ url_for(post.path) }}#comments" >
+                <span class="post-comments-count ds-thread-count" data-thread-key="{{ post.path }}"></span>
+              </a>
+            </span>
+            {% elseif config.disqus_shortname %}
+              <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="{{ url_for(post.path) }}#comments" >
+                <span class="post-comments-count disqus-comment-count" data-disqus-identifier="{{ post.path }}"></span>
+              </a>
+            </span>
             {% endif %}
           {% endif %}
-        </h1>
-      {% endif %}
-
-      <div class="post-meta">
-        <span class="post-time">
-          {{ __('post.posted') }} {{ post.date | date('Y-m-d') }}
-        </span>
-
-        {% if post.categories and post.categories.length %}
-          <span class="post-category">
-            &nbsp; | &nbsp; {{ __('post.in') }}
-            {% for cat in post.categories %}
-              <a href="{{ url_for(cat.path) }}">{{ cat.name }}</a>
-
-              {% set cat_length = post.categories.length %}
-              {% if cat_length > 1 and loop.index !== cat_length %}
-                {{ __('symbol.comma') }}
-              {% endif %}
-
-            {% endfor %}
-          </span>
-        {% endif %}
-
-        {% if post.comments %}
-          {% if (config.duoshuo and config.duoshuo.shortname) or config.duoshuo_shortname %}
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="{{ url_for(post.path) }}#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="{{ post.path }}"></span>
-            </a>
-          </span>
-          {% elseif config.disqus_shortname %}
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="{{ url_for(post.path) }}#comments" >
-              <span class="post-comments-count disqus-comment-count" data-disqus-identifier="{{ post.path }}"></span>
-            </a>
-          </span>
-          {% endif %}
-        {% endif %}
+        </div>
       </div>
     </div>
 

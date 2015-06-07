@@ -53,11 +53,30 @@
   }
 }
 
+.post-header {
+  min-height: 200px;
+  max-width: 100%;
+  background-image: url("smiley.gif");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50%; 
+  /* vertical centering */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .post-title-container {
+    max-width: 50%;
+  }
+}
+
 .posts-expand .post-meta {
-  margin: 3px 0 60px 0;
-  color: $grey-dark;
-  font-size: 12px;
+  margin: 0 auto;
+  color: #fff;
+  display: block;
   text-align: center;
+  font-size: 12px;
+  padding: 0 5px;
+  background-color: #000;
 
   .post-category-list {
     display inline-block
