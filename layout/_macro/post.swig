@@ -1,7 +1,11 @@
 {% macro render(post, is_index, post_extra_class) %}
 
   <div class="post post-type-{{ post.type | default('normal') }} {{ post_extra_class | default('') }}">
-    <div class="post-header" style='background-image: url("images/ferris.jpeg");'>
+    {% if post.banner %}
+      <div class="post-header" style='background-image: url("{{post.banner}}");'>
+    {% else %}
+      <div class="post-header">
+    {% endif %}
       <div class="post-title-container">
         {# Not to show title for quote posts that do not have a title #}
         {% if not (is_home() and post.type === 'quote' and not post.title) %}
