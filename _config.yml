@@ -9,6 +9,7 @@ menu:
 
 # Place your favicon.ico to /source directory.
 favicon: /favicon.ico
+avatar: images/hankseattle.jpg
 
 # Set default keywords (Use a comma to separate)
 keywords: "Hank,Henry"
