@@ -12,17 +12,17 @@
           <h1 class="post-title">
             {# Link posts #}
             {% if post.link %}
-              <a class="post-title-link post-title-link-external" target="_blank" href="{{ url_for(post.link) }}">
+              <a style="color: {{post.titleColour}}" class="post-title-link post-title-link-external" target="_blank" href="{{ url_for(post.link) }}">
                 {{ post.title or post.link }}
                 <i class="icon-external-link"></i>
               </a>
             {% else %}
               {% if is_home() %}
-                <a class="post-title-link" href="{{ url_for(post.path) }}">
+                <a style="color: {{post.titleColour}}" class="post-title-link" href="{{ url_for(post.path) }}">
                   {{ post.title | default(__('post.untitled'))}}
                 </a>
               {% else %}
-                {{ post.title }}
+                <span style="color: {{post.titleColour}}">{{ post.title }}</span>
               {% endif %}
             {% endif %}
           </h1>
@@ -109,7 +109,7 @@
       {% if post.tags and post.tags.length %}
         <div class="post-tags">
           {% for tag in post.tags %}
-            <a href="{{ url_for(tag.path) }}"> #{{ tag.name }} </a>
+            <a href="{{ url_for(tag.path) }}"> #{{ tag.name }}</a>
           {% endfor %}
         </div>
       {% endif %}
