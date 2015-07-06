@@ -2,9 +2,9 @@
 
   <div class="post post-type-{{ post.type | default('normal') }} {{ post_extra_class | default('') }}">
     {% if post.banner %}
-      <div class="post-header" style='background-image: url("{{post.banner}}");'>
+      <div class="post-header-banner" style='background-image: url("{{post.banner}}");'>
     {% else %}
-      <div class="post-header">
+      <div class="post-header-banner">
     {% endif %}
       <div class="post-title-container">
         {# Not to show title for quote posts that do not have a title #}
