@@ -11,7 +11,10 @@
 {% block content %}
   <div id="posts" class="posts-expand">
     {% for post in page.posts %}
-      {{ post_template.render(post, true) }}
+      {# ignore life event in expanded version #}
+      {% if post.title %}
+        {{ post_template.render(post, true) }}
+      {% endif %}
     {% endfor %}
   </div>
 

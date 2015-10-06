@@ -11,6 +11,7 @@
   <div id="posts" class="posts-collapse">
     <span class="archive-move-on"></span>
 
+<!-- Lose stupid 'cheers' feature -->
     <span class="archive-page-counter">
       {% set cheers %}
       {% set posts_length = site.posts.length %}
@@ -38,7 +39,20 @@
       {% endif %}
       {# endshow #}
 
-      {{ post_template.render(post) }}
+      {# If Life Event #}
+      {% if post.event %}
+        <div class="life-event">
+          <div class="thumbnail" style="background-image: url('/images/{{post.image}}');"></div>
+          <div class="event-title">
+            <span class="subtitle">{{post.subtitle}}</span>
+            <span class="title">{{post.event}}</span>
+          </div>
+        </div>
+      {# If Regular Post #}
+      {% else %}
+        {{ post_template.render(post) }}
+      {% endif %}
+
 
     {% endfor %}
 
