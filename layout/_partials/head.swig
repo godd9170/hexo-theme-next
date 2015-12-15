@@ -6,6 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
+<!-- d3 scripts -->
+<script src="/vendors/jquery/index.js" charset="utf-8"></script>
+<script src="/vendors/d3/d3.min.js" charset="utf-8"></script>
+<script src="/vendors/d3/topojson.v1.min.js" charset="utf-8"></script>
+<!-- end d3 scripts -->
+
 {% if theme.google_site_verification %}
   <meta name="google-site-verification" content="{{ theme.google_site_verification }}" />
 {% endif %}
