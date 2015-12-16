@@ -24,6 +24,11 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for(theme.vendors) }}/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 {% endif %}
 
+{% if theme.unslider %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for(theme.vendors) }}/unslider/css/unslider.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for(theme.vendors) }}/unslider/css/unslider-dots.css"/>
+{% endif %}
+
 <link rel="stylesheet" type="text/css" href="{{ url_for(theme.css) }}/main.css?v={{ theme.version }}"/>
 
 {% if config.description %}

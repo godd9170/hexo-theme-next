@@ -48,6 +48,7 @@
   {% block script_extra_before %}{% endblock %}
 
   {% include '_scripts/fancy-box.swig' %}
+  {% include '_scripts/unslider.swig' %}
   {% include '_scripts/helpers.swig' %}
   {% include '_scripts/motion.swig' %}
 
