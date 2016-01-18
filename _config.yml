@@ -3,8 +3,9 @@ menu:
   home: /
   #categories: /categories
   #about: /about
-  archives: /archives
+  #archives: /archives
   tags: /tags
+  resume: /resume
   projects: /projects
   #commonweal: /404.html
 
